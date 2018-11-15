@@ -1,0 +1,232 @@
+scopeName: 'source.epo'
+name: 'Enigma-Puzzle Organizer'
+fileTypes: [
+  'txt'
+  'epo'
+  'mkd'
+  'org'
+]
+limitLineLength: false
+
+patterns: [
+  {include: '#title'}
+  {include: '#subtitle'}
+  {include: '#puzzle'}
+  {include: '#solution'}
+  {include: '#divider'}
+  # below here are inclusions everywhere
+  {include: '#lineComment'}
+  {include: '#idea'}
+  {include: '#note'}
+  {include: '#multilineNote'}
+  {include: '#anchorReference'}
+  {include: '#colorHelp'}
+  {include: '#releasedClue'}
+  {include: '#foundSolution'}
+]
+
+repository:
+  colorHelp: {
+    comment: 'this is a rule object'
+    name: 'none'
+    begin: '(@)(green)?(cyan)?(blue)?(purple)?(red)?(orange)?(lorange)?(text)?(comment)?(under)?'
+    beginCaptures:
+      1: name: 'comment'
+      2: name: 'string'
+      3: name: 'support.function'
+      4: name: 'meta.require'
+      5: name: 'keyword'
+      6: name: 'variable'
+      7: name: 'constant'
+      8: name: 'support.class'
+      9: name: 'none'
+      10: name: 'comment'
+      11: name: 'markup.underline'
+    end: '\\s'
+  }
+  lineComment: {
+    comment: 'this is a rule object'
+    name: 'comment.epo'
+    begin: '(//)(TODO)?(HACK)?(BUG)?(DONE)?(NOPE)?'
+    beginCaptures:
+      1: name: ''
+      2: name: 'keyword'
+      3: name: 'constant'
+      4: name: 'variable'
+      5: name: 'string'
+      6: name: 'meta.require'
+    end: '$'
+    patterns: [{include: '#anchorReference'}]
+  }
+  idea: {
+    comment: 'Idea'
+    name: 'meta.idea.epo'
+    contentName: 'support.class'
+    begin: '^(\\s*)(!)(\\#)?(\\((.*)\\))?(\\.\\w+)?( )'
+    beginCaptures:
+      2: name: 'string'
+      3: name: 'markup.underline'
+      4: name: 'constant'
+      5: name: 'none'
+      6: name: 'markup.italic'
+    end: '$'
+    patterns: [{include: '#anchorReference'}]
+  }
+  divider: {
+    comment: 'Divider'
+    name: 'meta.divider.epo'
+    contentName: 'support.function'
+    begin: '(===|---)'
+    beginCaptures:
+      1: name: 'support.function'
+    end: '$'
+  }
+  anchorReference: {
+    comment: 'Anchor Reference'
+    name: 'meta.anchor-reference.epo'
+    contentName: 'none'
+    begin: '( )(\\()(\\@)'
+    beginCaptures:
+      2: name: 'meta.require'
+      3: name: 'comment'
+
+    end: '(\\))'
+    endCaptures:
+      1: name: 'meta.require'
+  }
+  title: {
+    comment: 'Title'
+    name: 'meta.title.epo'
+    contentName: 'variable'
+    begin: '^(\\s*)(\\^)(\\#)?( )'
+    beginCaptures:
+      2: name: 'variable'
+      3: name: 'markup.underline'
+    end: '$'
+  }
+  subtitle: {
+    comment: 'Subtitle'
+    name: 'meta.subtitle.epo'
+    contentName: 'constant'
+    begin: '^(\\s*)(\\^\\^)( )'
+    beginCaptures:
+      2: name: 'constant'
+    end: '$'
+    patterns: [{include: '#anchorReference'}]
+  }
+  note: {
+    comment: 'Note'
+    name: 'meta.note.epo'
+    contentName: 'comment'
+    begin: '^(\\s*)(>)(\\#)?(\\((.*)\\))?(\\.\\w+)?( )'
+    beginCaptures:
+      2: name: 'support.class'
+      3: name: 'markup.underline'
+      4: name: 'constant'
+      5: name: 'none'
+      6: name: 'markup.italic'
+    end: '$'
+    patterns: [{include: '#anchorReference'}]
+  }
+  multilineNote: {
+    comment: 'Multiline Note'
+    name: 'meta.multiline-note.epo'
+    contentName: 'comment'
+    begin: '^(\\s*)(<)(\\#)?(\\((.*)\\))?(\\.\\w+)?( )?'
+    beginCaptures:
+      2: name: 'support.class'
+      3: name: 'markup.underline'
+      4: name: 'constant'
+      5: name: 'none'
+      6: name: 'markup.italic'
+    end: '(>)$'
+    endCaptures:
+      1: name: 'support.class'
+    patterns: [{include: '#anchorReference'}]
+  }
+  puzzle: {
+    comment: 'Puzzle'
+    name: 'meta.puzzle.epo'
+    contentName: 'none'
+    begin: '^(\\s*)(\\[)( (\\d) (\\|))?( )?'
+    beginCaptures:
+      2: name: 'meta.require'
+      3: name: ''
+      4: name: 'markup.underline'
+      5: name: 'meta.require'
+    end: '(\\])'
+    endCaptures:
+      1: name: 'meta.require'
+    patterns:[
+      {include: '#lineComment'}
+      {include: '#idea'}
+      {include: '#note'}
+      {include: '#multilineNote'}
+      {include: '#anchorReference'}
+      {include: '#step'}
+      {include: '#numberStep'}
+      {include: '#releasedClue'}
+    ]
+  }
+  solution: {
+    comment: 'Solution'
+    name: 'meta.solution.epo'
+    contentName: 'none'
+    begin: '(?<=(\\]))(\\()( )?'
+    beginCaptures:
+      2: name: 'meta.require'
+    end: '(\\))'
+    endCaptures:
+      1: name: 'meta.require'
+    patterns:[
+      {include: '#lineComment'}
+      {include: '#idea'}
+      {include: '#note'}
+      {include: '#multilineNote'}
+      {include: '#anchorReference'}
+      {include: '#step'}
+      {include: '#numberStep'}
+      {include: '#foundSolution'}
+    ]
+  }
+  step: {
+    comment: 'Step'
+    name: 'meta.step.epo'
+    contentName: ''
+    begin: '^(\\s*)(\\*)( )'
+    beginCaptures:
+      2: name: 'keyword'
+    end: '$'
+  }
+  numberStep: {
+    comment: 'Numbered Step'
+    name: 'meta.number-step.epo'
+    contentName: 'none'
+    begin: '^(\\s*)(\\d)(\\.|\\-|\\*)( )'
+    beginCaptures:
+      2: name: 'keyword'
+      3: name: 'comment'
+    end: '$'
+  }
+  releasedClue: {
+    comment: 'Released Clue'
+    name: 'meta.released-clue.epo'
+    contentName: 'meta.require'
+    begin: '^(\\s)*(```)'
+    beginCaptures:
+      2: name: 'string'
+    end: '(```)'
+    endCaptures:
+      1: name: 'string'
+  }
+  foundSolution: {
+    comment: 'Found Solution'
+    name: 'meta.found-solution.epo'
+    contentName: 'string'
+    begin: '^(\\s)*(```)'
+    beginCaptures:
+      2: name: 'meta.require'
+    end: '(```)'
+    endCaptures:
+      1: name: 'meta.require'
+  }

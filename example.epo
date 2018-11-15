@@ -1,0 +1,178 @@
+
+BASICS
+
+  ! idea. these stand out more than notes.
+
+  > short note. text will wrap as needed.
+
+  <
+    multiline
+    note. the text will break
+    where you drop line breaks.
+  >
+
+  < multiline notes don't need to be split up,\n you can throw a newline in there like that >
+
+  > there is no difference between us.
+  < there is no difference between us. >
+
+  ---
+  ===
+  < the three dashes or equals above create a divider line, to separate sections.
+    the line can be as long as you want.
+  >
+
+  =====================
+
+
+  ^ title
+  ^^ subtitle
+
+  // this is a comment. it will not be visible in the compiled file.
+  //TODO: this is a todo comment. it will highlight in code to help you remember it.
+  //HACK: this is a comment denoting a hack. it works, but should be better done.
+  //BUG: this is a comment denoting a bug, something that needs fixed.
+  //DONE: this is a todo that has been done. left for logs' sake.
+  //NOPE: decided against this idea. leaving for records.
+
+  [ puzzle ]( solution )
+
+  [ 1 |
+    a puzzle  can be in
+    multiline form.
+
+    a number followed by pipe before the puzzle will set it as a puzzle number,
+    and is automatically set as an anchor tag, so it can be easily referenced.
+  ](
+    solution
+
+    * A solution
+    * can have many steps
+      > but also have notes
+      ! or ideas
+    * within steps.
+      * they cannot however be stacked within each other like this,
+    * and will be treated as a regular step, when compiled.
+
+    1. steps can also use . - * in front of digits to
+    2- create numbered steps. they do not have to be
+    3* in any sort of order, and will be placed how they are written.
+
+  )
+
+MODIFIERS
+
+  <
+    a css file can be included, for colors.
+    example below.
+  >
+
+  !.danger this is an idea with a class of dangerous, for css styling.
+
+  >.helpful this is a helpful note
+
+  <.helpful and this is a multiline helpful note >
+
+  >(this is a header) notes can have short header.
+
+  >#(anchors) notes can be anchor links as well.
+
+  <#(anchors 2) and here is the \n multiline version of it >
+
+  < you can reference specific anchor tags, just like this: (@anchors)
+    it will create a clickable link that will scroll to it.
+  >
+
+
+  !(hey listen:) the only punctuation allowed in header: is demonstrated in this idea's text
+
+
+  ^# Titles can be anchors too, but the title is the main content.
+  ^^ subtitles cannot be anchor tags.
+  ^^ however, subtitles can hold (@anchor) tags
+
+EXAMPLES
+
+  ^# Puzzle 1
+  ^^ first of the puzzles
+
+  !(remember:) Make it easier to solve, to get users going.
+
+  [ 1 |
+
+    ```
+      this is a released clue
+    ```
+
+    <(release by June)
+      June is crucial for this puzzle, \n\n don't forget to release by then!
+    >
+
+    1. step taken to create puzzle 1
+      ! this is simpler to do if using this other tool
+    2. step taken to create puzzle 2
+      >.warn be aware of this one thing
+    3. step taken to create puzzle 3
+      > note that
+  ](
+    ```
+      this is the solution.
+    ```
+    > it is used in puzzle (@3)
+    
+    1- step to solve 1
+    2- step to solve 2
+      >#(hint).helpful this is a hint to release, if nobody gets it
+      * don't forget this point
+      * and this point
+      * and this point
+    3- step to solve 3
+  )
+
+  ==============================================
+
+  ^# Puzzle 2
+  ^^ this puzzle is kept under lock and key. see (@locks 'n keys) for help
+
+  [ 2 |
+
+    ```
+      once upon a time, there was a dude who ate beans
+      and then ran a cross country race.
+    ```
+
+    < dont' worry about this one so much as the last one.
+      you have user attention.
+    >
+
+    1. did this
+    2. did that
+    3. did this other thing
+
+  ](
+
+  )
+
+
+
+
+
+
+
+//DONE: add colors EVERYWHERE
+//DONE: fix todos only being gray
+//DONE: add numeral lists to puzzles/solutions
+//NOPE: set the * as "within" numbered step
+//DONE: make sure anchor references are white inside
+
+
+@green    idea bang, numbered steps
+@cyan     idea
+@blue     divider
+@purple   anchors, steps
+@red      puzzle/solution braces
+@orange   note parentheses
+@lorange  note braces
+@text
+@comment
+@under
