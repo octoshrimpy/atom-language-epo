@@ -8,5 +8,6 @@
   },
   "author": "octoshrimpy",
   "license": "ISC",
-  "repository": "https://github.com/octoshrimpy/atom-language-epo"
+  "repository": "https://github.com/octoshrimpy/atom-language-epo",
+  "engines": {"atom": ">=1.0.0 <2.0.0"}
 }
