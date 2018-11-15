@@ -1,6 +1,6 @@
 {
   "name": "atom-language-epo",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "atom grammar for EnigmaPuzzle Organizer, a language designed to help make and solve puzzles.",
   "main": "index.js",
   "scripts": {
@@ -9,5 +9,7 @@
   "author": "octoshrimpy",
   "license": "ISC",
   "repository": "https://github.com/octoshrimpy/atom-language-epo",
-  "engines": {"atom": ">=1.0.0 <2.0.0"}
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
 }
