@@ -22,7 +22,13 @@ BASICS
     the line can be as long as you want.
   >
 
-  =====================
+
+=============================
+=       color guide
+=============================
+< the above is a named divider. it will only work if the first line
+  has no spaces before it. the first char in the middle line can be anything.
+>
 
 
   ^ title
@@ -119,7 +125,7 @@ EXAMPLES
       this is the solution.
     ```
     > it is used in puzzle (@3)
-    
+
     1- step to solve 1
     2- step to solve 2
       >#(hint).helpful this is a hint to release, if nobody gets it
@@ -153,26 +159,27 @@ EXAMPLES
 
   )
 
+=============================
+=       color guide
+=============================
+
+  @green    idea bang, numbered steps
+  @cyan     idea
+  @blue     divider
+  @purple   anchors, steps
+  @red      puzzle/solution braces
+  @orange   note parentheses
+  @lorange  note braces
+  @text
+  @comment
+  @under
 
 
 
 
 
 
-//DONE: add colors EVERYWHERE
-//DONE: fix todos only being gray
-//DONE: add numeral lists to puzzles/solutions
-//NOPE: set the * as "within" numbered step
-//DONE: make sure anchor references are white inside
 
-
-@green    idea bang, numbered steps
-@cyan     idea
-@blue     divider
-@purple   anchors, steps
-@red      puzzle/solution braces
-@orange   note parentheses
-@lorange  note braces
-@text
-@comment
-@under
+=========================
+.  actual puzzle below
+=========================

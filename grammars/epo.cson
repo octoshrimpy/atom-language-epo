@@ -1,10 +1,11 @@
 scopeName: 'source.epo'
 name: 'Enigma-Puzzle Organizer'
 fileTypes: [
-  'txt'
   'epo'
-  'mkd'
-  'org'
+  'epo.md'
+  'epo.txt'
+  'epo.org'
+  'epo.ini'
 ]
 limitLineLength: false
 
@@ -14,6 +15,7 @@ patterns: [
   {include: '#puzzle'}
   {include: '#solution'}
   {include: '#divider'}
+  {include: '#namedDivider'}
   # below here are inclusions everywhere
   {include: '#lineComment'}
   {include: '#idea'}
@@ -47,7 +49,7 @@ repository:
   lineComment: {
     comment: 'this is a rule object'
     name: 'comment.epo'
-    begin: '(//)(TODO)?(HACK)?(BUG)?(DONE)?(NOPE)?'
+    begin: '(//)( )?(TODO)?(HACK)?(BUG)?(DONE)?(NOPE)?'
     beginCaptures:
       1: name: ''
       2: name: 'keyword'
@@ -80,6 +82,15 @@ repository:
     beginCaptures:
       1: name: 'support.function'
     end: '$'
+  }
+  namedDivider: {
+    comment: 'Named Divider'
+    name: 'meta.named-divider.epo'
+    contentName: 'support.function'
+    begin: '(=|-){3}(\\n)(=|-)( )*'
+    beginCaptures:
+      1: name: 'support.function'
+    end: '(=|-){3}$'
   }
   anchorReference: {
     comment: 'Anchor Reference'

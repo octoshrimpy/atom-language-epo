@@ -1,0 +1,17 @@
+
+==================
+.  TODO LIST
+==================
+
+
+// TODO: upload new version with proper markdown syntax grabbing
+// TODO: include markdown syntax highlighting
+// TODO: throw a couple puzzles in there, test to see if it needs changes
+// TODO: add imdone folder to gitignore
+
+
+// DONE: add colors EVERYWHERE
+// DONE: fix todos only being gray
+// DONE: add numeral lists to puzzles/solutions
+// NOPE: set the * as "within" numbered step
+// DONE: make sure anchor references are white inside
