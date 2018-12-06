@@ -14,8 +14,8 @@ patterns: [
   {include: '#subtitle'}
   {include: '#puzzle'}
   {include: '#solution'}
-  {include: '#divider'}
   {include: '#namedDivider'}
+  {include: '#divider'}
   # below here are inclusions everywhere
   {include: '#lineComment'}
   {include: '#idea'}
@@ -25,6 +25,8 @@ patterns: [
   {include: '#colorHelp'}
   {include: '#releasedClue'}
   {include: '#foundSolution'}
+  {include: '#snippet'}
+  {include: '#snippetResolution'}
 ]
 
 repository:
@@ -46,17 +48,57 @@ repository:
       11: name: 'markup.underline'
     end: '\\s'
   }
+  snippet: {
+    comment: 'this is snippet of code that has been decyphered'
+    name: 'snippet.epo'
+    contentName: 'constant'
+    begin: '^(\\s*)(\\w*)(\\()(( \\d*|\\w*)(\\,))?( )?'
+    beginCaptures:
+      2: name: 'string'
+      3: name: 'meta.require'
+      5: name: 'variable'
+      6: name: 'meta.require'
+    end: '(\\))'
+    endCaptures:
+        1: name: 'meta.require'
+    patterns: [
+      {include: '#step'}
+      {include: '#idea'}
+      {include: '#note'}
+      {include: '#multilineNote'}
+      {include: '#anchorReference'}
+    ]
+  }
+  snippetResolution: {
+    comment: 'this is snippet of code that has been decyphered'
+    name: 'snippet.epo'
+    contentName: 'support.function'
+    begin: '(?<=(\\)))(\\{)( )?'
+    beginCaptures:
+      2: name: 'meta.require'
+    end: '(\\})'
+    endCaptures:
+      1: name: 'meta.require'
+    patterns: [
+      {include: '#step'}
+      {include: '#idea'}
+      {include: '#note'}
+      {include: '#multilineNote'}
+      {include: '#anchorReference'}
+    ]
+  }
   lineComment: {
     comment: 'this is a rule object'
     name: 'comment.epo'
     begin: '(//)( )?(TODO)?(HACK)?(BUG)?(DONE)?(NOPE)?'
     beginCaptures:
       1: name: ''
-      2: name: 'keyword'
-      3: name: 'constant'
-      4: name: 'variable'
-      5: name: 'string'
-      6: name: 'meta.require'
+      2: name: ''
+      3: name: 'keyword'
+      4: name: 'constant'
+      5: name: 'variable'
+      6: name: 'string'
+      7: name: 'meta.require'
     end: '$'
     patterns: [{include: '#anchorReference'}]
   }
@@ -86,11 +128,13 @@ repository:
   namedDivider: {
     comment: 'Named Divider'
     name: 'meta.named-divider.epo'
-    contentName: 'support.function'
-    begin: '(=|-){3}(\\n)(=|-)( )*'
+    contentName: 'variable'
+    begin: '^(=|-){3,}(\\n)'
     beginCaptures:
-      1: name: 'support.function'
-    end: '(=|-){3}$'
+      0: name: 'meta.require'
+    end: '(=|-){3,}$'
+    endCaptures:
+      0: name: 'meta.require'
   }
   anchorReference: {
     comment: 'Anchor Reference'
@@ -170,12 +214,12 @@ repository:
       1: name: 'meta.require'
     patterns:[
       {include: '#lineComment'}
+      {include: '#numberStep'}
+      {include: '#step'}
       {include: '#idea'}
       {include: '#note'}
       {include: '#multilineNote'}
       {include: '#anchorReference'}
-      {include: '#step'}
-      {include: '#numberStep'}
       {include: '#releasedClue'}
     ]
   }
@@ -198,6 +242,8 @@ repository:
       {include: '#step'}
       {include: '#numberStep'}
       {include: '#foundSolution'}
+      {include: '#snippet'}
+      {include: '#snippetResolution'}
     ]
   }
   step: {
