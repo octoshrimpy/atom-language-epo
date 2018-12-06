@@ -14,17 +14,18 @@ patterns: [
   {include: '#subtitle'}
   {include: '#puzzle'}
   {include: '#solution'}
+  # below are inclusions for just puzzle and solution
+  {include: '#releasedClue'}
+  {include: '#foundSolution'}
+  # below here are inclusions everywhere
   {include: '#namedDivider'}
   {include: '#divider'}
-  # below here are inclusions everywhere
   {include: '#lineComment'}
   {include: '#idea'}
   {include: '#note'}
   {include: '#multilineNote'}
   {include: '#anchorReference'}
   {include: '#colorHelp'}
-  {include: '#releasedClue'}
-  {include: '#foundSolution'}
   {include: '#snippet'}
   {include: '#snippetResolution'}
 ]
@@ -52,7 +53,7 @@ repository:
     comment: 'this is snippet of code that has been decyphered'
     name: 'snippet.epo'
     contentName: 'constant'
-    begin: '^(\\s*)(\\w*)(\\()(( \\d*|\\w*)(\\,))?( )?'
+    begin: '^(\\s*)(\\w*)(\\()(( \\w*|\\d*)(\\,))?( )?'
     beginCaptures:
       2: name: 'string'
       3: name: 'meta.require'
@@ -62,11 +63,16 @@ repository:
     endCaptures:
         1: name: 'meta.require'
     patterns: [
-      {include: '#step'}
+      {include: '#namedDivider'}
+      {include: '#divider'}
+      {include: '#lineComment'}
       {include: '#idea'}
       {include: '#note'}
       {include: '#multilineNote'}
       {include: '#anchorReference'}
+      {include: '#colorHelp'}
+      {include: '#snippet'}
+      {include: '#snippetResolution'}
     ]
   }
   snippetResolution: {
@@ -80,11 +86,16 @@ repository:
     endCaptures:
       1: name: 'meta.require'
     patterns: [
-      {include: '#step'}
+      {include: '#namedDivider'}
+      {include: '#divider'}
+      {include: '#lineComment'}
       {include: '#idea'}
       {include: '#note'}
       {include: '#multilineNote'}
       {include: '#anchorReference'}
+      {include: '#colorHelp'}
+      {include: '#snippet'}
+      {include: '#snippetResolution'}
     ]
   }
   lineComment: {
@@ -181,7 +192,9 @@ repository:
       5: name: 'none'
       6: name: 'markup.italic'
     end: '$'
-    patterns: [{include: '#anchorReference'}]
+    patterns: [
+      {include: '#anchorReference'}
+    ]
   }
   multilineNote: {
     comment: 'Multiline Note'
@@ -197,7 +210,9 @@ repository:
     end: '(>)$'
     endCaptures:
       1: name: 'support.class'
-    patterns: [{include: '#anchorReference'}]
+    patterns: [
+      {include: '#anchorReference'}
+    ]
   }
   puzzle: {
     comment: 'Puzzle'
@@ -286,4 +301,13 @@ repository:
     end: '(```)'
     endCaptures:
       1: name: 'meta.require'
+    patterns:[
+      {include: '#step'}
+      {include: '#numberStep'}
+      {include: '#divider'}
+      {include: '#lineComment'}
+      {include: '#idea'}
+      {include: '#note'}
+      {include: '#multilineNote'}
+    ]
   }

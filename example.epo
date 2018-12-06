@@ -183,3 +183,111 @@ EXAMPLES
 =========================
 .  actual puzzle below
 =========================
+
+
+^# First puzzle
+^^ this is Rigin's puzzle. if you don't want spoilers, don't pay attention to it.
+
+
+[ 1 |
+
+
+    ```
+    Ready?
+    /
+    Since the beginning,
+    Great legends have existed,
+    Difficult challenges have been brought.
+    _
+    I don't know where i am...
+    No one knows
+    This place...
+    Quivering...
+    M
+    Zero hope.
+    KEY: SODBHU
+    ```
+
+](
+    ```
+    * r/SGD_INTQMZK
+    >#(img 1) image found in subreddit
+    * key image -> ELRW
+        * NOTHINGISREAL.png
+
+    ```
+
+    >.clue from the subreddit
+    caesar( 11,
+        ZYNP JZF DELCE ESPCP TD YZ RZTYR MLNY.
+        ELYP ESTD APCDZYLW TYGTEP.
+        OZ YZE DSLCP TE HTES LYJZYP PWDP.
+
+        > in red
+        T HTWW MP HLTETYR.
+        3233685571474b
+    ){
+        once you start there is no going back.
+        take this personal invite.
+        do not share it with anyone else.
+
+        > in red
+        i will be waiting.
+        3233685571474b
+    }
+
+
+    >.clue from image (@img 1)
+    caesar( 25,
+        RDDLR KHJD XNT QDZBGDC LX INTQMZK, H ZOOKZTC XNT. ATS BZM XNT QDZBG SGD DMC?
+    ){
+        seems like you reached my journal, i applaud you. but can you reach the end?
+    }
+
+    caesar( 3,
+        SODBHU
+    ){
+        player
+    }
+
+    caesar( 25,
+        SGD_INTQMZK
+    ){
+        the_journal
+    }
+
+    atbash(
+        OLLPH ORPV BLF'IV MVZI GSV VMGIZXV.
+        R SLKV BLF VMQLB RG...
+        RG DROO YV...
+        EVIB
+        EVIB
+        RMGVIVHGRMT...
+    ){
+        looks like you're near the entrace.
+        i hope you enjoy it...
+        it will be...
+        very
+        very
+        interesting...
+    }
+
+    atbash(
+        GSV_VMGRGB
+    ){
+        the_entity
+    }
+)
+
+
+
+@green
+@cyan
+@blue
+@purple
+@red
+@orange
+@lorange
+@text
+@comment
+@under
