@@ -89,7 +89,6 @@ MODIFIERS
     it will create a clickable link that will scroll to it.
   >
 
-
   !(hey listen:) the only punctuation allowed in header: is demonstrated in this idea's text
 
 
@@ -218,6 +217,7 @@ EXAMPLES
     ```
 
     >.clue from the subreddit
+
     caesar( 11,
         ZYNP JZF DELCE ESPCP TD YZ RZTYR MLNY.
         ELYP ESTD APCDZYLW TYGTEP.
@@ -257,6 +257,12 @@ EXAMPLES
     }
 
     atbash(
+      GSV_VMGRGB
+      ){
+        the_entity
+      }
+
+    atbash(
         OLLPH ORPV BLF'IV MVZI GSV VMGIZXV.
         R SLKV BLF VMQLB RG...
         RG DROO YV...
@@ -270,12 +276,6 @@ EXAMPLES
         very
         very
         interesting...
-    }
-
-    atbash(
-        GSV_VMGRGB
-    ){
-        the_entity
     }
 )
 
