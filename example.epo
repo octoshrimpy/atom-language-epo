@@ -81,6 +81,8 @@ MODIFIERS
 
   >(this is a header) notes can have short header.
 
+  !(header text) ideas can have headers too!
+
   >#(anchors) notes can be anchor links as well.
 
   <#(anchors 2) and here is the \n multiline version of it >
@@ -95,6 +97,18 @@ MODIFIERS
   ^# Titles can be anchors too, but the title is the main content.
   ^^ subtitles cannot be anchor tags.
   ^^ however, subtitles can hold (@anchor) tags
+
+
+  >#(anchors) notes can be anchor links as well.
+
+  <#(anchors 2) and here is the \n multiline version of it >
+
+  !#(anchors here) ideas as an anchor tag too
+
+  ^# Titles can be anchors too, but the title is the main content.
+  ^^ subtitles cannot be anchor tags but they can hold (@anchor) tags
+
+
 
 EXAMPLES
 
